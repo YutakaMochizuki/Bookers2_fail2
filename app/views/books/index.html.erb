@@ -1,0 +1,16 @@
+<div>
+  <h1>Book detail</h1>
+</div>
+
+<% @books.each do |book| %>
+<div>
+  <%= image_tag book.get_image %><br>
+  <%= book.user.name %>
+</div>
+<div>
+  <div><%= book.title_name %></div>
+  <div><%= book.body %></div>
+  <div><%= link_to "Edit" %></div>
+  <div><%= link_to "Destroy" %></a></div>
+</div>
+<% end %>
