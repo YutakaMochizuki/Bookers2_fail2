@@ -1,36 +1,55 @@
 <div>
-  <h1>User info</h1>
-      <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div>
+          <h1>User info</h1>
+          <table class="table table-striped">
+            <div>
+              <p>name</p>
+              <p><%= current_user.name %></p>
+            </div>
+            <div>
+              <p>introduction</p>
+              <p>sample</p>
+              <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
+            </div>
+          </table>
 
-<div>
-  <h1>New book</h1>
-  <%= form_with model: @book do |f| %>
-  <h4>Title</h4>
-    <%= f.text_field :title %>
-  <h4>Opinion</h4>
-    <%= f.text_area :body %><br>
-    <%= f.submit 'Create Book' %>
-  <% end %>
-</div>
-
-
-<div>
-  <div>
-    <h1>Users</h1>
-  </div>
-
-  <% @books.each do |book| %>
-  <div>
-    <%= link_to book_path(book.id) do %>
-    <div>
-      <%= image_tag book.get_image %><br>
+        </div>
+        <div>
+          <h1>New book</h1>
+          <%= form_with model: @book do |f| %>
+            <h4>Title</h4>
+            <%= f.text_field :title %>
+            <h4>Opinion</h4>
+            <%= f.text_area :body %><br>
+            <div class="books_index_btn">
+              <%= f.submit 'Create Book' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h1>Books</h1>
+        </div>
+        <% @books.each do |book| %>
+        <div class="col-lg-8">
+          <table class="table table-striped">
+            <div>
+              <%= link_to book_path(book.id) do %>
+                <%= image_tag book.get_image %><br>
+                <%= book.user.name %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to "show", book_path(book.id)%>
+            </div>
+          </table>
+        <% end %>
+        </div>
+      </div>
     </div>
-    <div>
-      <%= book.user.name %>
-    </div>
-    <div><%= link_to "show", book_path(book.id)%></div>
-    <% end %>
   </div>
-  <% end %>
 </div>
