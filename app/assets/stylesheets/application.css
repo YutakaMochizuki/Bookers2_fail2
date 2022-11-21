@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.books_index_btn input[type="submit"]:hover{
+  color: white;
+  background-color: green;
+}
