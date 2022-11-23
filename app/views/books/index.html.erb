@@ -13,7 +13,7 @@
             <%= image_tag book.user.get_profile_image(100,100) %><br>
           <% end %>
         </th>
-      <th><%= link_to book.title, "#{book.id}" %></a></th>
+      <th><%= link_to book.title, "books/#{book.id}" %></a></th>
       <th><%= book.body %></th>
       </tr>
       </tbody>

@@ -24,10 +24,10 @@
               <% if user_signed_in? %>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <li class="nav-item m-3">
-                  <%= link_to "Home", @user, :style=>"color:white" %>
+                  <%= link_to "Home", "/users/#{:id}" %>
                 </li>
                 <li class="nav-item m-3">
-                  <%= link_to "Users", @users, :style=>"color:white" %>
+                  <%= link_to "Users", "/users", :style=>"color:white" %>
                 </li>
                 <li class="nav-item m-3">
                   <%= link_to "Books", "/books", :style=>"color:white" %>
