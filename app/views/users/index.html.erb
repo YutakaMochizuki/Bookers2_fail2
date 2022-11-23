@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <h1>Users</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr><th>image</th><th>name</th><th></th></tr>
+    </thead>
+    <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <th>
+          <%= link_to book_path(book.id) do %>
+            <%= image_tag book.get_image %><br>
+          <% end %>
+        </th>
+        <th><%= book.user.name %></th>
+        <th><%= link_to "show", @user %></th>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
