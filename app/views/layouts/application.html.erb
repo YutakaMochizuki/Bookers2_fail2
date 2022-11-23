@@ -24,13 +24,13 @@
               <% if user_signed_in? %>
               <div>
                 <li class="nav-item">
-                  <%= link_to "Home" %>
+                  <%= link_to "Home", @user %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Users" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Books" %>
+                  <%= link_to "Books", "/books" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -39,10 +39,10 @@
               <% else %>
               <div>
                 <li class="nav-item">
-                  <%= link_to "Home" %>
+                  <%= link_to "Home", "/" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "About" %>
+                  <%= link_to "About", "homes/about" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Sign up", new_user_registration_path %>
