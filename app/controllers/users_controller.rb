@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = current_user
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(params[:id])
   end
 
   def update

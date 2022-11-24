@@ -24,7 +24,7 @@
               <% if user_signed_in? %>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <li class="nav-item m-3">
-                  <%= link_to "Home", "/users/#{:id}" %>
+                  <%= link_to "Home", "/users/#{:id}", :style=>"color:white" %>
                 </li>
                 <li class="nav-item m-3">
                   <%= link_to "Users", "/users", :style=>"color:white" %>
@@ -68,16 +68,30 @@
                   <h1>User info</h1>
                   <table class="table table-striped">
                     <div>
-                      <p>image</p>
-                      <p>name</p>
-                      <p><%= current_user.name %></p>
-                    </div>
-                    <div>
-                      <p>introduction</p>
-                      <p>sanmple</p>
-                      <p><%= link_to "Edit" %></p>
+                      <p><%= image_tag current_user.get_profile_image(100,100) %></p>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p>name</p>
+                          </td>
+                          <td>
+                            <p><%= current_user.name %></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>introduction</p>
+                          </td>
+                          <td>
+                            <p><%= current_user.introduction %></p>
+                          </td>
+                        </tr>
+                      </tbody>
                     </div>
                   </table>
+                  <div>
+                      <p><%= link_to "Edit", edit_user_path(current_user.id)  %></p>
+                  </div>
                 </div>
                 <div>
                   <h1>New book</h1>
