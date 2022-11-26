@@ -10,14 +10,20 @@ class ApplicationController < ActionController::Base
   end
 
   def new
-    @book = Book.new
+    @book = Book.new(book_params)
+    @books = Book.all
   end
 
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to controller :'books', action: 'show'
+    if  @book.save
+      flash[:notice] = "You have created book successfully"
+      redirect_to controller :'books', action: 'show'
+    else
+      @books = Book.all
+      render template: "books/index"
+    end
   end
 
   def edit
@@ -33,6 +39,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
 end
