@@ -2,19 +2,19 @@
   <div>
     <h1>Users</h1>
   </div>
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr><th>image</th><th>name</th><th></th></tr>
     </thead>
     <tbody>
-    <% @books.each do |book| %>
+    <% @users.each do |user| %>
       <tr>
         <th>
-          <%= link_to book_path(book.id) do %>
-            <%= image_tag book.get_image %><br>
+          <%= link_to user_path(user.id) do %>
+            <%= image_tag user.get_profile_image(100,100) %><br>
           <% end %>
         </th>
-        <th><%= book.user.name %></th>
+        <th><%= user.name %></th>
         <th><%= link_to "show", @user %></th>
       </tr>
     <% end %>
